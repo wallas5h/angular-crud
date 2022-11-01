@@ -18,6 +18,13 @@
         routerLink="/contact"
         >Contact</a
       >
+      <ng-container *ngIf="isAdmin">
+        <a
+          class="inline-block px-4 py-1 cursor-pointer hover:text-green-300 hover:border-b-white font-semibold"
+          routerLink="/user"
+          >Users</a
+        >
+      </ng-container>
     </div>
     <div>
       <ng-container *ngIf="!isAuthenticated()">
@@ -46,7 +53,10 @@
     <router-outlet></router-outlet>
   </div>
 
-  <footer class="flex justify-center p-4 bg-green-600 text-white">
+  <footer
+    *ngIf=" isAuthenticated()"
+    class="flex justify-center p-4 bg-green-600 text-white"
+  >
     <p class="font-semibold">© 2022 All rights reserved</p>
   </footer>
 </div>

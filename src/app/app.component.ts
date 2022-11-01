@@ -8,13 +8,24 @@ import { UserService } from "./Service/user.service";
 })
 export class AppComponent {
   constructor(private userService: UserService) {}
+  isAdmin: boolean = false;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.ngDoCheck();
+  }
 
   isAuthenticated() {
     return this.userService.isAuthenticated;
   }
   logout() {
     this.userService.logout();
+  }
+
+  ngDoCheck() {
+    if (this.userService.getRole() === "admin") {
+      this.isAdmin = true;
+    } else {
+      this.isAdmin = false;
+    }
   }
 }
