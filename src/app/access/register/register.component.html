@@ -1,1 +1,62 @@
-<p>register works!</p>
+<mat-card class="fles-row justify-center">
+  <mat-card-title class="text-center pb-5">Register</mat-card-title>
+  <mat-card-content class="ml-auto border-none">
+    <form
+      class="example-form w-80 m-auto"
+      [formGroup]="reactiveForms"
+      (ngSubmit)="createUser()"
+      #myForm="ngForm"
+    >
+      <mat-form-field class="example-full-width w-full" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          placeholder="Email"
+          type="email"
+          name="email"
+          required
+          formControlName="email"
+        />
+      </mat-form-field>
+      <mat-form-field class="example-full-width w-full" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          placeholder="Password"
+          type="password"
+          name="password"
+          required
+          formControlName="password"
+        />
+      </mat-form-field>
+      <mat-form-field class="example-full-width w-full" appearance="fill">
+        <mat-label>Confirm password</mat-label>
+        <input
+          matInput
+          placeholder="Confirm password"
+          type="password"
+          name="confirmPassword"
+          required
+          formControlName="confirmPassword"
+        />
+      </mat-form-field>
+      <div class="flex justify-evenly">
+        <button
+          mat-raised-button
+          type="submit"
+          class="bg-green-600 text-slate-100"
+          [disabled]="myForm.form.invalid"
+        >
+          Register
+        </button>
+        <button
+          mat-raised-button
+          class="bg-blue-500 text-slate-100"
+          (click)="redirectLogin()"
+        >
+          Login
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
