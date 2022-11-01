@@ -1,0 +1,46 @@
+<h4 class="text-center">Update user</h4>
+<form [formGroup]="updateForm" (ngSubmit)="updateUser()">
+  <mat-form-field class="example-full-width w-full" appearance="fill">
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Id</mat-label>
+      <input matInput formControlName="_id" type="text" />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role">
+        <ng-container *ngFor="let role of roleData">
+          <mat-option [value]="role">
+            {{role}}
+          </mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <section class="example-section">
+        <mat-checkbox class="example-margin" formControlName="isActive"
+          >Is Active</mat-checkbox
+        >
+      </section>
+    </div>
+    <div class="flex justify-evenly mt-3">
+      <button
+        mat-raised-button
+        class="bg-blue-500 text-slate-100"
+        type="submit"
+      >
+        Update
+      </button>
+      <button
+        mat-raised-button
+        class="bg-red-500 text-slate-100"
+        (click)="closeDialogWindow()"
+      >
+        Close
+      </button>
+    </div>
+  </mat-form-field>
+</form>
