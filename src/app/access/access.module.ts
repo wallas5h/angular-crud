@@ -1,17 +1,21 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
+import { NgModule } from "@angular/core";
 
-import { AccessRoutingModule } from './access-routing.module';
-import { RegisterComponent } from './register/register.component';
-
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MaterialModule } from "../Materia-Module";
+import { AccessRoutingModule } from "./access-routing.module";
+import { RegisterComponent } from "./register/register.component";
 
 @NgModule({
-  declarations: [
-    RegisterComponent
-  ],
+  declarations: [RegisterComponent],
   imports: [
     CommonModule,
-    AccessRoutingModule
-  ]
+    AccessRoutingModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
 })
-export class AccessModule { }
+export class AccessModule {}
